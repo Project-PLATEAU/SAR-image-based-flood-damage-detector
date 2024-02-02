@@ -112,16 +112,9 @@
 ## 7. 本リポジトリのフォルダ構成 <!-- 本GitHub上のソースファイルの構成を記載ください。 -->
 | フォルダ名 |　詳細 |
 |-|-|
-| 0_PrepareProject.ipynb | プロジェクトの初期・3D都市モデル（CityGML）の読み込み |
-| 1_EstimateSAR-FloodPrbDiff.ipynb | SARデータの読み込み・SARデータによる浸水確率ラスターデータの推定 |
-| 2_GeneratePointGroup.ipynb | 浸水ポイントクラウドデータの生成 |
-| 3_CalcFloodDEMRaster.ipynb | 浸水面の高度ラスターデータと浸水深データの生成 |
-| 4_AssessBuildings.ipynb | 建物への浸水深付与 |
-| 5_Upload.ipynb | Re:Earth CMSへのアップロード |
-| plateau_floodsar_lib.py | DEMデータの補正用のプログラム |
-| s1-s3_GIAJ_FloodArea_Raster.ipynb | GIAJ GeoJSONから浸水面の高度ラスターデータの生成 |
-| s1_ALOS-2_EstimateSAR-FloodPrb.ipynb | ALOS-2の分析 |
-| s1-s2_ASNARO-2_EstimateSAR_FloodPrb.ipynb | ASNARO-2の分析 |
+| PLATEAU-FloodSAR | GoogleColaboratoryのPythonコードが格納されたフォルダ |
+| boundary_sample | 解析対象範囲のサンプルとして久留米市のファイルが格納されているフォルダ |
+| training | 機械学習モデルのPythonコードが格納されたフォルダ |
 
 ## 8. ライセンス <!-- 変更せず、そのまま使うこと。 -->
 
