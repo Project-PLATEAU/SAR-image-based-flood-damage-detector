@@ -112,7 +112,6 @@
 |-|-|
 | PLATEAU-FloodSAR | GoogleColaboratoryのPythonコードが格納されたフォルダ |
 | boundary_sample | 解析対象範囲のサンプルとして久留米市のファイルが格納されているフォルダ |
-| training | 機械学習モデルのPythonコードが格納されたフォルダ |
 | img | README.mdの画像が格納されたフォルダ |
 
 ## 8. ライセンス <!-- 変更せず、そのまま使うこと。 -->
