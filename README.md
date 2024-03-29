@@ -9,11 +9,11 @@
 
 ## 2. 「SAR衛星解析による洪水被害の推定システム」について
 SAR衛星データを解析して洪水災害等の浸水範囲を解析する機能は、機械学習モデルを用いて人工衛星観測データ（SARデータ）から浸水範囲を解析します。また、推定した浸水範囲と3D都市モデルの地形モデル及び建築物モデルを組合せることで、家屋単位での浸水深の算出および被災判定を行います。  
-本システムで作成したデータの可視化環境として、[SAR衛星解析による洪水被害の推定結果の可視化を行うRe:Earthプラグイン](https://github.com/Project-PLATEAU/reearth-plugin-flooddamage-widget?tab=readme-ov-file)が利用可能となっています。本システムの詳細については[技術検証レポート](https:XXX)を参照してください。
+本システムで作成したデータの可視化環境として、[SAR衛星解析による洪水被害の推定結果の可視化を行うRe:Earthプラグイン](https://github.com/Project-PLATEAU/reearth-plugin-flooddamage-widget?tab=readme-ov-file)が利用可能となっています。本システムの詳細については[技術検証レポート](https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0071_ver01.pdf)を参照してください。
 
 
 ## 3. 利用手順
-本システムの構築手順及び利用手順については[利用チュートリアル](https://project-plateau.github.io/SAR-image-based-flood-damage-detector/)を参照してください。  
+本システムの構築手順及び利用手順については[利用チュートリアル](https://plateau-acn.github.io/SAR-image-based-flood-damage-detector/)を参照してください。  
 本システムは実行環境としてGoogle Colaboratoryを想定しています。
 
 ## 4. システム概要
@@ -137,5 +137,5 @@ SAR衛星データを解析して洪水災害等の浸水範囲を解析する�
 - 本リポジトリの利用により生じた損失及び損害等について、国土交通省はいかなる責任も負わないものとします。
 
 ## 10. 参考資料
-- 技術検証レポート: https:XXX
+- 技術検証レポート: https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0071_ver01.pdf
 - PLATEAU WebサイトのUse caseページ「人工衛星観測データを用いた浸水被害把握」: https://www.mlit.go.jp/plateau/use-case/uc23-01/
