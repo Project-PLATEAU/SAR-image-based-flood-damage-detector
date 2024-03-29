@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>操作マニュアル </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="操作マニュアル ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="操作マニュアル">操作マニュアル</h1>
+
+<h1 id="1-本書について">1 本書について</h1>
+<p>本書では、SAR衛星解析による洪水被害の推定システム（以下「本システム」という）の操作手順について記載しています。</p>
+<h1 id="2-使い方">2 使い方</h1>
+<h2 id="2-1-google-drive内に保存されたファイルの起動">2-1 Google Drive内に保存されたファイルの起動</h2>
+<ul>
+<li><p>「マイドライブ」 -&gt; 「SAR-image-based-flood-damage-detector」 -&gt; 「PLATEAU-FloodSAR」に本システムの実行ファイルが展開されています。</p>
+</li>
+<li><p>本システムの実行ファイルである拡張子が「.ipynb」のファイルをGoogle Drive内でダブルクリックすると、Google Colaboratoryが起動します。
+<img src="../resources/userMan/tutorial_001.png" alt="">
+<img src="../resources/userMan/tutorial_002.png" alt=""></p>
+</li>
+<li><p>以下が実行ファイルの一覧です。本マニュアルでは、福岡県久留米市の令和2年度7月豪雨を対象に欧州宇宙機関が運用するSentinel-1の人工衛星観測データを用いた解析を行います。以下に、メインステップのプログラムについて操作手順を記載します。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ファイル名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0_PrepareProject.ipynb</td>
+<td>プロジェクトの初期・3D都市モデル（CityGML）の読み込み</td>
+<td>メインステップ</td>
+</tr>
+<tr>
+<td>1_EstimateSAR-FloodPrbDiff.ipynb</td>
+<td>SARデータの読み込み・SARデータによる浸水確率ラスターデータの推定</td>
+<td>メインステップ</td>
+</tr>
+<tr>
+<td>2_GeneratePointGroup.ipynb</td>
+<td>浸水ピクセルの生成</td>
+<td>メインステップ</td>
+</tr>
+<tr>
+<td>3_CalcFloodDEMRaster.ipynb</td>
+<td>浸水面の標高ラスターデータの生成</td>
+<td>メインステップ</td>
+</tr>
+<tr>
+<td>4_AssessBuildings.ipynb</td>
+<td>建物への浸水深付与</td>
+<td>メインステップ</td>
+</tr>
+<tr>
+<td>5_Upload.ipynb</td>
+<td>解析データの生成</td>
+<td>メインステップ</td>
+</tr>
+<tr>
+<td>s1-s3_GIAJ_FloodArea_Raster.ipynb</td>
+<td>国土地理院の浸水推定図（GeoJSON）による浸水面の標高ラスターデータの生成</td>
+<td>サブステップ</td>
+</tr>
+<tr>
+<td>s1_ALOS-2_EstimateSAR-FloodPrb.ipynb</td>
+<td>ALOS-2の分析</td>
+<td>サブステップ</td>
+</tr>
+<tr>
+<td>s1-s2_ASNARO-2_EstimateSAR_FloodPrb.ipynb</td>
+<td>ASNARO-2の分析</td>
+<td>サブステップ</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-2-google-colaboratoryでの実行共通事項">2-2 Google Colaboratoryでの実行（共通事項）</h2>
+<p>① 実行ファイル内の変数設定</p>
+<ul>
+<li>各ファイル内の「設定するパラメータ」セルにある変数を設定してください。福岡県久留米市の令和2年度7月豪雨を対象にした解析を行う場合、新たに設定する必要はありません。
+<img src="../resources/userMan/tutorial_003.png" alt=""></li>
+</ul>
+<p>② すべてのセルの実行</p>
+<ul>
+<li>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</li>
+</ul>
+<p><img src="../resources/devMan/tutorial_017.png" alt=""></p>
+<ul>
+<li>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_004.png" alt="">
+<img src="../resources/userMan/tutorial_005.png" alt=""></p>
+<p>③ 実行の完了</p>
+<ul>
+<li>すべてのセルの実行が完了したら、次の実行ファイルに進んでください。</li>
+<li>セルの実行が完了したら、緑のチェックマークがつきます。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_007.png" alt=""></p>
+<h2 id="2-3-各実行ファイルの操作手順">2-3 各実行ファイルの操作手順</h2>
+<h3 id="2-3-1-人工衛星観測データの解析メインブランチ">2-3-1 人工衛星観測データの解析（メインブランチ）</h3>
+<h4 id="プロジェクトの初期3d都市モデルcitygmlの読み込み0_prepareprojectipynb">⓪プロジェクトの初期・3D都市モデル（CityGML）の読み込み（0_PrepareProject.ipynb）</h4>
+<ul>
+<li>「設定するパラメータ」セルにある変数を設定してください。福岡県久留米市の令和2年度7月豪雨を対象にした解析を行う場合、新たに設定する必要はありません。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_201.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>設定項目</th>
+<th>変数名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>解析ケース</td>
+<td>casename</td>
+<td>ケース名</td>
+<td>各ファイル共通</td>
+</tr>
+<tr>
+<td>B</td>
+<td>対象エリアの領域</td>
+<td>boundaryfile</td>
+<td>対象エリアのファイルパス</td>
+<td>boundaryfileもしくはinit_boundaliesを設定する</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>init_boundalies</td>
+<td>対象エリアの緯度・経度情報</td>
+<td>boundaryfileもしくはinit_boundaliesを設定する</td>
+</tr>
+<tr>
+<td>C</td>
+<td>解析対象のCityGML</td>
+<td>url_CityGML</td>
+<td>CityGMLのダウンロード元のURL</td>
+<td>flg_from_web=Trueに設定する</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>filename_CityGML</td>
+<td>CityGMLのパス</td>
+<td>flg_from_web=Falseに設定する</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</li>
+<li>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</li>
+<li>CityGMLを解析して、対象エリアの建物データを生成します。また、国土地理院からデジタル標高モデル（DEM、5mメッシュ）をダウンロードします。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_202.png" alt=""></p>
+<h4 id="sarデータの読み込みsarデータによる浸水確率ラスターデータの推定1_estimatesar-floodprbdiffipynb">①SARデータの読み込み・SARデータによる浸水確率ラスターデータの推定（1_EstimateSAR-FloodPrbDiff.ipynb）</h4>
+<ul>
+<li>「設定するパラメータ」セルにある変数を設定してください。福岡県久留米市の令和2年度7月豪雨を対象にした解析を行う場合、新たに設定する必要はありません。</li>
+<li>Google Earth Engineのプロジェクト名を設定する必要があります。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_211.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>設定項目</th>
+<th>変数名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>解析ケース</td>
+<td>casename</td>
+<td>ケース名</td>
+<td>各ファイル共通</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>date</td>
+<td>浸水日</td>
+<td>YYYY-MM-DD形式で設定</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Google Earth Engineを使用するためには、まずGoogle CloudでGoogle Earth Engine APIを有効化します。</p>
+</li>
+<li><p><a href="https://console.cloud.google.com/">Google Cloud</a>にアクセスし、APIとサービスを押す。
+<img src="../resources/userMan/tutorial_217.png" alt=""></p>
+</li>
+<li><p>Google Cloudの新しいプロジェクトを作成する。
+<img src="../resources/userMan/tutorial_218.png" alt="">
+<img src="../resources/userMan/tutorial_219.png" alt=""></p>
+</li>
+<li><p><a href="https://console.cloud.google.com/apis/library/earthengine.googleapis.com">Google Earth Engine API</a>にアクセスし、有効化します。
+<img src="../resources/userMan/tutorial_215.png" alt=""></p>
+</li>
+<li><p>Google Earth Engine APIが有効化できたら、Google Earth Engineのプロジェクトを作成します。</p>
+</li>
+<li><p><a href="https://earthengine.google.com/">Google Earth Engine</a>にアクセスし、右上の「Get Started」を押します。</p>
+</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_212.png" alt=""></p>
+<ul>
+<li>「Register a Noncommercial or Commercial Cloud project」を押し、プロジェクトの目的を選択します。</li>
+<li>「Create a new Google Cloud Project」を選択してプロジェクト名を入力し、「CONTINUE TO SUMMARY」を押します。</li>
+<li>Google Earth Engineのプロジェクトが作成されるので、設定したプロジェクト名をGoogle Colaboratory上で入力します。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_213.png" alt="">
+<img src="../resources/userMan/tutorial_214.png" alt=""></p>
+<ul>
+<li><p>Google Earth Engineのプロジェクト名を設定してください。
+<img src="../resources/userMan/tutorial_212.png" alt=""></p>
+</li>
+<li><p>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</p>
+</li>
+<li><p>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</p>
+</li>
+<li><p>Google Earth Engineにより、対象とする浸水日を指定することで浸水日とその1回帰前のSentinel-1の人工衛星観測データを取得します。</p>
+</li>
+<li><p>取得した人工衛星観測データを使用して、浸水確率学習モデルによりピクセル単位の浸水確率を推定します。</p>
+</li>
+<li><p>浸水時の人工衛星観測データの浸水確率とその1回帰前の人工衛星観測の浸水確率をピクセル単位で差し引きし、浸水時の浸水確率ラスターデータとして出力します。
+<img src="../resources/userMan/tutorial_008.png" alt=""></p>
+</li>
+</ul>
+<h4 id="浸水ピクセルの生成2_generatepointgroupipynb">②浸水ピクセルの生成（2_GeneratePointGroup.ipynb）</h4>
+<ul>
+<li>「設定するパラメータ」セルにある変数を設定してください。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_220.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>設定項目</th>
+<th>変数名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>解析ケース</td>
+<td>casename</td>
+<td>ケース名</td>
+<td>各ファイル共通</td>
+</tr>
+<tr>
+<td>B</td>
+<td>調整可能な衛星解析のパラメータ</td>
+<td>threshold</td>
+<td>浸水ピクセル判定の閾値</td>
+<td>0-1で設定</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</li>
+<li>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</li>
+<li>①で生成した浸水確率ラスターデータを使用して、浸水確率が閾値を超えるピクセルを浸水ピクセルと判定します。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_009.png" alt=""></p>
+<h4 id="浸水面の標高ラスターデータの生成3_calcflooddemrasteripynb">③浸水面の標高ラスターデータの生成（3_CalcFloodDEMRaster.ipynb）</h4>
+<ul>
+<li>「設定するパラメータ」セルにある変数を設定してください。福岡県久留米市の令和2年度7月豪雨を対象にした解析を行う場合、新たに設定する必要はありません。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_230.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>設定項目</th>
+<th>変数名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>解析ケース</td>
+<td>casename</td>
+<td>ケース名</td>
+<td>各ファイル共通</td>
+</tr>
+<tr>
+<td>B</td>
+<td>調整可能な衛星解析のパラメータ</td>
+<td>mindepth</td>
+<td>浸水面の最低水深の設定</td>
+<td>m単位で設定</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>maxarea</td>
+<td>浸水面の最大面積の設定</td>
+<td>25m²単位で設定</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>maxdepth</td>
+<td>浸水面の最大水深の設定</td>
+<td>m単位で設定</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</p>
+</li>
+<li><p>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</p>
+</li>
+<li><p>②で生成した浸水ピクセルから等標高の浸水面を推定し、浸水面の標高ラスターデータを生成します。</p>
+</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_010.png" alt=""></p>
+<h4 id="建物への浸水深付与4_assessbuildingsipynb">④建物への浸水深付与（4_AssessBuildings.ipynb）</h4>
+<ul>
+<li>「設定するパラメータ」セルにある変数を設定してください。福岡県久留米市の令和2年度7月豪雨を対象にした解析を行う場合、新たに設定する必要はありません。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_240.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>設定項目</th>
+<th>変数名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>解析ケース</td>
+<td>casename</td>
+<td>ケース名</td>
+<td>各ファイル共通</td>
+</tr>
+<tr>
+<td>B</td>
+<td>調整可能な衛星解析のパラメータ</td>
+<td>maxdepth</td>
+<td>浸水面の最大水深の設定</td>
+<td>③と同じ値を設定</td>
+</tr>
+<tr>
+<td>C</td>
+<td>自治体コード</td>
+<td>pref_code</td>
+<td>都道府県コード</td>
+<td><a href="https://www.e-stat.go.jp/gis/statmap-search?page=1&amp;type=2&amp;aggregateUnitForBoundary=A&amp;toukeiCode=00200521&amp;toukeiYear=2020&amp;serveyId=A002005212020&amp;coordsys=1&amp;format=shape&amp;datum=2000">e-Stat</a>より確認</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>city_code</td>
+<td>市区町村コード</td>
+<td><a href="https://www.e-stat.go.jp/gis/statmap-search?page=1&amp;type=2&amp;aggregateUnitForBoundary=A&amp;toukeiCode=00200521&amp;toukeiYear=2020&amp;serveyId=A002005212020&amp;coordsys=1&amp;format=shape&amp;datum=2000">e-Stat</a>より確認</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</li>
+<li>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</li>
+<li>⓪で取得した建物データと③で生成した浸水面の標高ラスターデータを使用して、建物毎の浸水深を算出します。</li>
+<li>各建物の構造種別と浸水深に基づいて、被災カテゴリとして床上浸水か床下判定かの判定を行います。</li>
+<li>建物データに浸水深と被災カテゴリを追加した被災建物データ（CSV形式）を生成します。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_011.png" alt=""></p>
+<h3 id="2-3-2-解析結果のデータ生成メインブランチ">2-3-2 解析結果のデータ生成（メインブランチ）</h3>
+<h4 id="解析データの生成5_uploadipynb">⑤解析データの生成（5_Upload.ipynb）</h4>
+<ul>
+<li>「設定するパラメータ」セルにある変数を設定してください。福岡県久留米市の令和2年度7月豪雨を対象にした解析を行う場合、新たに設定する必要はありません。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_250.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>設定項目</th>
+<th>変数名</th>
+<th>内容</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>解析ケース</td>
+<td>casename</td>
+<td>ケース名</td>
+<td>各ファイル共通</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>obsdate</td>
+<td>浸水日</td>
+<td>YYYY-MM-DD形式で設定</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>satelite</td>
+<td>人工衛星名</td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>調整可能な衛星解析のパラメータ</td>
+<td>maxdepth</td>
+<td>浸水面の最大水深の設定</td>
+<td>③と同じ値を設定</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>「ランタイム」ボタンを押し、「すべてのセルを実行」を選択ことでファイルが実行されます。</li>
+<li>Google ColaboratoryによるGoogle Driveへのファイルのアクセス許可を求められるため、許可します。</li>
+<li>③で生成した浸水面の標高ラスターデータをpng形式の画像タイル及び3D Tiles形式の点群データに変換します。</li>
+<li>④で生成した被災建物データを集計し、木造家屋の被災カテゴリ別のpng形式のヒートマップ画像タイルを生成します。</li>
+<li>生成したデータは、Google Drive内に格納されます。</li>
+</ul>
+<p><img src="../resources/userMan/tutorial_251.PNG" alt=""></p>
+<h1 id="3-出力データ">3 出力データ</h1>
+<p>解析で出力されるデータは以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>機能</th>
+<th>出力データ</th>
+<th>内容</th>
+<th>データ形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人工衛星観測データの解析</td>
+<td>建物被災状況</td>
+<td>入力したCityGMLの属性をパースし、解析結果の浸水深、被災カテゴリを属性として付与したデータ。</td>
+<td>CSV</td>
+</tr>
+<tr>
+<td></td>
+<td>浸水域・浸水深の画像タイル</td>
+<td>解析結果の浸水域と浸水深を画像タイル化したデータ。</td>
+<td>png</td>
+</tr>
+<tr>
+<td></td>
+<td>浸水域・浸水深の3D点群データ</td>
+<td>解析結果の浸水域と浸水深を3D点群化したデータ。</td>
+<td>3DTiles</td>
+</tr>
+<tr>
+<td></td>
+<td>被災建物のヒートマップ画像タイル</td>
+<td>木造建物に対して床上浸水、床下浸水、木造家屋総数のヒートマップを画像タイル化したデータ。</td>
+<td>png</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-1-建物被災状況">3-1 建物被災状況</h2>
+<p>建物被災状況は建築物モデルの属性に付与され、入力したCityGMLの建物IDに紐づいてCSV形式で出力されます。</p>
+<p><img src="../resources/userMan/tutorial_012.png" alt=""></p>
+<h2 id="3-2-浸水域浸水深の画像タイル">3-2 浸水域・浸水深の画像タイル</h2>
+<p>浸水域・浸水深の画像タイルはpng形式で出力されます。</p>
+<p>画像ファイルに位置情報が付与されているため、GISソフト（QGISやArcGIS等）で利用可能です。</p>
+<p><img src="../resources/userMan/tutorial_013.png" alt=""></p>
+<h2 id="3-3-浸水域浸水深の3d点群データ">3-3 浸水域・浸水深の3D点群データ</h2>
+<p>浸水域・浸水深の3D点群データは3DTilesで出力されます。</p>
+<p><img src="../resources/userMan/tutorial_014.png" alt=""></p>
+<h2 id="3-4-被災建物のヒートマップ画像タイル">3-4 被災建物のヒートマップ画像タイル</h2>
+<p>被災建物のヒートマップ画像タイルはpng形式で出力されます。</p>
+<p>色の閾値は、「4_AssessBuildings.ipynb」のXYZタイル分けされた点郡NPZファイルの生成関数において変更が可能となっています。</p>
+<p>画像ファイルに位置情報が付与されているため、GISソフト（QGISやArcGIS等）で利用可能です。</p>
+<p><img src="../resources/userMan/tutorial_015.png" alt=""></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

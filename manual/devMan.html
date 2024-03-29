@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>環境構築手順書 </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="環境構築手順書 ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="環境構築手順書">環境構築手順書</h1>
+
+<h1 id="1-本書について">1 本書について</h1>
+<p>本書では、SAR衛星解析による洪水被害の推定システム（以下「本システム」という。）の利用環境構築手順について記載しています。本システムの構成や仕様の詳細については以下も参考にしてください。</p>
+<p><a href="https://www.mlit.go.jp/XXXX">技術検証レポート</a></p>
+<h1 id="2-動作環境">2 動作環境</h1>
+<p>本システムはGoogle Colaboratoryでの実行を想定しており、動作環境は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>GoogleColaboratoryでの動作環境（2024/02/01時点）</th>
+<th>推奨環境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>コア数2，スレッド数4</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>Tesla K80 GPU等</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>メモリ</td>
+<td>12.7GB以上</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>ネットワーク</td>
+<td>クラウド型サービスのためネットワーク環境は必要</td>
+<td>同左</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-インストール手順">3 インストール手順</h1>
+<p><a href="https://colab.research.google.com/github/Project-PLATEAU/SAR-image-based-flood-damage-detector/blob/main/Git2Colab_Installation_PLATEAU_FloodSAR.ipynb">こちら</a>
+のプログラムを実行することで、自身のGoogle Drive内に本リポジトリを展開することができます。
+メニューバーの「ランタイム」より「すべてのセルを実行」してください。 その後、出てくる警告やアクセス許可を行ってください。</p>
+<p><img src="../resources/devMan/tutorial_017.png" alt=""></p>
+<p>Google Driveに展開されたフォルダ内の「SAR-image-based-flood-damage-detector/PLATEAU-FloodSAR/」に本システムのプログラムが格納されています。</p>
+<p><img src="../resources/devMan/tutorial_018.png" alt=""></p>
+<h1 id="4-準備物一覧">4 準備物一覧</h1>
+<p>本システムを利用するために以下のデータを入手します。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>データ種別</th>
+<th>機能</th>
+<th>用途</th>
+<th>入力方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>3D都市モデル(CityGML)G空間情報センターから取得します。<br> <a href="https://front.geospatial.jp/">https://front.geospatial.jp/</a></td>
+<td>全般</td>
+<td>全般</td>
+<td>格納フォルダパスもしくはZipのURLを指定</td>
+</tr>
+<tr>
+<td>②</td>
+<td>人工衛星観測データ Google Earth Engineにより取得します。<br> <a href="https://earthengine.google.com/">https://earthengine.google.com/</a></td>
+<td>全般</td>
+<td>全般</td>
+<td>APIにより取得</td>
+</tr>
+<tr>
+<td>③</td>
+<td>解析対象範囲 国土地理院から取得もしくは緯度・経度を直接入力します。<br> <a href="https://maps.gsi.go.jp/">https://maps.gsi.go.jp/</a></td>
+<td>全般</td>
+<td>全般</td>
+<td>GeoJsonファイルをダウンロードしファイルパス指定もしくは緯度・経度により直接指定</td>
+</tr>
+</tbody>
+</table>
+<p>本システムでは、3D都市モデルの建築物モデルの形状（LOD1）と属性を活用します。</p>
+<table>
+<thead>
+<tr>
+<th>地物</th>
+<th>地物型</th>
+<th>属性区分</th>
+<th>属性名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>建築物LOD1</td>
+<td>bldg:Building</td>
+<td>空間属性</td>
+<td>bldg:lod1Solid</td>
+<td>建築物のLOD1の立体</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>bldg:WallSurface</td>
+<td>建築物の平面投影形状</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>主題属性</td>
+<td>bldg:usage</td>
+<td>用途</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>bldg:measuredHeight</td>
+<td>計測高さ</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>bldg:storeysAboveGround</td>
+<td>地上階数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>uro:buildingStructureType</td>
+<td>構造種別</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
