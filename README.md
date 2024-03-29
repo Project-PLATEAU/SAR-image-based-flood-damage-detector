@@ -54,38 +54,12 @@ SAR衛星データを解析して洪水災害等の浸水範囲を解析する�
 - 各建物の構造種別と浸水深に基づいて、被災カテゴリとして床上浸水か床下判定かの判定を行います。
 - 建物データに浸水深と被災カテゴリを追加した被災建物データ（CSV形式）を生成します。
 
-### 【解析結果のアップロード（メインステップ⑤）】
-#### ⑤Re:Earth CMSへのアップロード（5_Upload.ipynb）
+### 【解析結果のデータ生成（メインステップ⑤）】
+#### ⑤解析データの生成（5_Upload.ipynb）
 - ③で生成した浸水面の標高ラスターデータをpng形式の画像タイル及び3D Tiles形式の点群データに変換します。
 - ④で生成した被災建物データを集計し、木造家屋の被災カテゴリ別のpng形式のヒートマップ画像タイルを生成します。
-- Re:Earth CMS の認証を行った後、上記のデータと④で生成した被災建物データ（CSV形式）をRe:Earth CMSにアップロードします。
-- アップロードされたRe:Earth CMSのリンクが以下のように出力される。
+- 生成したデータは、Google Drive内に格納されます。
 
-```
-以下の情報をRe:Earth編集画面に入力してください。
-------------------------------------------------
-観測日: 2020-07-10
-観測衛星: Sentinel-1
-浸水深ファクター: 1.0
-
-浸水域・浸水深（3Dタイル）
-https://assets.cms.plateau.reearth.io/assets/*/3dtiles/tileset.json
-
-浸水域・浸水深（画像タイル）
-https://assets.cms.plateau.reearth.io/assets/*/xyztile/{z}/{x}/{y}.png
-
-建物被災状況（CSVファイル）
-https://assets.cms.plateau.reearth.io/assets/*/heatmap_yukaue_mokuzou/{z}/{x}/{y}.png
-
-被災建物・ヒートマップ画像タイル：床上（木造）
-https://assets.cms.plateau.reearth.io/assets/*/heatmap_yukaue_mokuzou/{z}/{x}/{y}.png
-
-被災建物・ヒートマップ画像タイル：床下（木造）
-https://assets.cms.plateau.reearth.io/assets/*/heatmap_yukashita_mokuzou/{z}/{x}/{y}.png
-
-被災建物・ヒートマップ画像タイル:木造家屋総数
-https://assets.cms.plateau.reearth.io/assets/*/heatmap_all_mokuzou/{z}/{x}/{y}.png
-```
 
 ### 【プログラム】
 #### DEMデータの補正用のプログラム（plateau_floodsar_lib.py）
@@ -143,6 +117,7 @@ https://assets.cms.plateau.reearth.io/assets/*/heatmap_all_mokuzou/{z}/{x}/{y}.p
 | GPU                | Tesla K80 GPU等        | 同左 |
 | メモリ             | 12.7GB以上             | 同左 |
 | ネットワーク       | クラウド型サービスのためネットワーク環境は必要 | 同左 |
+
 ## 7. 本リポジトリのフォルダ構成 <!-- 本GitHub上のソースファイルの構成を記載ください。 -->
 | フォルダ名 |　詳細 |
 |-|-|
