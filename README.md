@@ -13,7 +13,7 @@ SAR衛星データを解析して洪水災害等の浸水範囲を解析する�
 
 
 ## 3. 利用手順
-本システムの構築手順及び利用手順については[利用チュートリアル](https://plateau-acn.github.io/SAR-image-based-flood-damage-detector/)を参照してください。  
+本システムの構築手順及び利用手順については[利用チュートリアル](https://project-plateau.github.io/SAR-image-based-flood-damage-detector/)を参照してください。  
 本システムは実行環境としてGoogle Colaboratoryを想定しています。
 
 ## 4. システム概要
